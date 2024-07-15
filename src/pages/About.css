@@ -1,0 +1,77 @@
+
+  .home-content h2 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+   }
+   .home-content h5 {
+       font-size: 32px;
+       font-weight: 700;
+       color: #00abf0;
+   }
+   .home-content h4 {
+       font-size: 26px;
+       margin: 20px 0 50px;
+   }
+
+.logo-right {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    width: 100%;
+    background-color: #081b29;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+
+
+.home-skills {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;  
+}
+.home-skills a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+.home-skills a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    
+}
+.home-skills a:hover {
+    color: #081b29;
+}
+.home-skills a:hover::before {
+     width: 100%;
+}
+
