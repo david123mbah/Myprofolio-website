@@ -1,39 +1,72 @@
-import React from 'react';
+import React, { useState, useTransition } from 'react';
 import './index.css';
+import TabButton from './TabButton';
 
-const AboutMe = () => {
+const About = () => {
+
+  const [tab, setTab] = useState("skills");
+  const [isPending, startTransition] = useTransition();
+
+  const handleTabChange = (id) => {
+    startTransition(() => {
+      setTab(id);
+    });
+  };
   return (
     <section className="home">
-      <div className="about-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="about-title text-4xl font-bold text-center text-gray-800 mb-8 animate-fadeInUp">
-          About Me
-        </h2>
-        <div className="about-content grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="about-image">
-            <img
-              src="./public\WhatsApp Image 2024-06-17 at 16.29.54_50b48a10.jpg"
-              alt="About Me"
-              className="rounded-lg shadow-lg animate-fadeInLeft"
+      <div className=" md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sn:py-16 ">
+      <img src="./public\app.jpg" alt="" width={500} height={500}
             />
-          </div>
-          <div className="about-text">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 animate-fadeInUp">
-              Software Engineer
-            </h3>
-            <p className="text-gray-600 mb-4 animate-fadeInUp">
-              As a software engineer, I have had the opportunity to work on a wide range of projects, from building web applications to developing mobile apps and backend systems. I have a strong foundation in computer science principles and a passion for problem-solving and innovation.
-            </p>
-            <p className="text-gray-600 mb-4 animate-fadeInUp">
-              Throughout my career, I have developed a diverse skillset, including expertise in programming languages like JavaScript, Python, and Java, as well as experience with various frameworks and libraries such as React, Node.js, and Django. I am also comfortable with database management, DevOps practices, and agile development methodologies.
-            </p>
-            <p className="text-gray-600 mb-4 animate-fadeInUp">
-              One of the things I enjoy most about my work is the constant learning and growth opportunities. I am always eager to explore new technologies and stay up-to-date with the latest industry trends and best practices. I believe in continuous improvement and strive to deliver high-quality, scalable, and maintainable software solutions.
-            </p>
-          </div>
-        </div>
+      <div>
+        {/* right side */}
+      <h2 className="text-4xl font-bold text-white mb-4  ">AboutMe</h2>
+      <p className="test-base lg:text-lg">
+            My name is david, and I am a versatile 
+            professional with a diverse skill set. 
+            I have experience working as a UI/UX designer, software engineer, web developer, and mobile developer. With a strong background in these areas, I am able to approach projects with a well-rounded 
+            perspective and deliver high-quality results.
+            Based in Cameroon, I have honed my skills through hands-on learning and building various applications and web projects.
+             I am passionate about staying up-to-date with the 
+             latest technologies and techniques in my fields,
+              and I constantly strive to enhance my knowledge and capabilities.
+      </p>
+      <div className="flex flex-row mt-8">
+        <TabButton selectTab={() => handleTabChange("Skills")}
+        active={tab == "skills"} /> 
+        <span className="mr-3 font-semibold hover:text-white text-[#ADB7BE] border-b border-purple-500">
+          Skills
+          </span>
+        <span className="">
+          Education
+          </span>
+        <span className="">
+          Experience
+          </span>
+
+      </div>
+      </div>
       </div>
     </section>
   );
 };
 
-export default AboutMe;
+export default About;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

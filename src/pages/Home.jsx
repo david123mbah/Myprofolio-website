@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css';
 import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 
 const Home = () => {
   return (
@@ -15,14 +16,28 @@ const Home = () => {
               repeat: Infinity,
               repeatDelay: 20,
             }}
-            >   
-      <h1>Hi, I'm Mbah David</h1>
-      <h3>Software Engineer</h3>
-      
-      <p>
-      Software Engineer based in cameroon, specializing in 
-      mobile App and web development through hands-on learning and building applications,web projects.
-      </p>
+            > 
+            
+            <h3>Hello, I'm{" "}</h3>
+            <TypeAnimation 
+            sequence={[
+              "david",
+              1000,
+              "UI/UX designer",
+              1000,
+              "Software Engineer",
+              1000,
+              "Web Developer",
+               1000,
+               "Mobile Developer",
+               1000,
+            ]}
+             speed={50}
+             repeat={Infinity}
+            
+      />
+      <p>Software Engineer based in cameroon, 
+        specializing in mobile App and web development through hands-on learning and building applicaions,web projects.</p>
       </motion.h1>
       <div className="btn-box">
         <a href="https://wa.me/652892462?text=I%20would%20like%20to%20hire%20you" class="button">Hire Me</a>
