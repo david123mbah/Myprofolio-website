@@ -1,5 +1,6 @@
 import React, { useState, useTransition } from 'react';
 import TabButton from './TabButton';
+import './index.css'
 
 const About = () => {
   const [tab, setTab] = useState("skills");
