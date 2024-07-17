@@ -16,7 +16,7 @@ const App = () => {
     </Router>
     <Home/>
     <About/>
-    <Projects/>
+    
     
    </div>
     
