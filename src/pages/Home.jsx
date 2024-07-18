@@ -66,7 +66,7 @@ const Home = () => {
                repeatDelay: 20,
              }}
           >
-            <img src="/public\WhatsApp Image 2024-06-17 at 16.29.54_50b48a10.jpg" alt="home" 
+            <img src="/WhatsApp Image 2024-06-17 at 16.29.54_50b48a10.jpg" alt="home" 
             />
           </motion.div>
           </div>
