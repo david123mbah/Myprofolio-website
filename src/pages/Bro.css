@@ -149,3 +149,17 @@
   .submit-button:hover {
     background-color: #031a32;
   }
+
+  .homes {
+    
+    background-color: #081b29;
+    color: rgba(0, 0, 0, 0.378);
+    
+    
+}
+
+.homes-content h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+ }

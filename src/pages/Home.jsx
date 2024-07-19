@@ -66,7 +66,7 @@ const Home = () => {
                repeatDelay: 20,
              }}
           >
-            <img src="/mmmmmm.jpg" alt="home" 
+            <img src="/Screenshot (763).png" alt="home" 
             />
           </motion.div>
           </div>
