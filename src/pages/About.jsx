@@ -20,8 +20,8 @@ const About = () => {
           <li>React</li>
           <li>MySQL</li>
           <li>C++</li>
-          <li>Flutter</li>
-          <li>Firebase</li>
+          <li>Flutter , firebase</li>
+          
         </ul>
       ),
     },
