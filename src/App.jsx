@@ -1,26 +1,12 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
-import { Home, About, Projects, Contact} from './pages';
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = () => {
   return (
-   <div className="">
-    <Router>
-      <Navbar />
-      <Routes>
-      <Route path ="/about" element={<About />} />
-      <Route path ="/projects" element={<Projects />} />
-      <Route path ="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
-    <Home/>
-    <About/>
-    <Projects/>
-    
-   </div>
-    
+    <div className="">
+      <Sidebar/>
+    </div>
   );
-}
+};
 
-export default App
+export default App;
