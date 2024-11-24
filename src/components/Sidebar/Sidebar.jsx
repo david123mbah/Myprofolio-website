@@ -8,9 +8,9 @@ import {
   FileText,
   LogOut,
   Settings,
+  ChevronUp,
   ChevronDown,
-} from "lucide-react"; // Import icons here
-
+} from "lucide-react";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -29,17 +29,17 @@ const Sidebar = () => {
       icon: Users,
       label: "Collaborateur",
       subItems: [
-        { label: "Dashboard", link: "/collaborator" },
-        { label: "Informations Personnelles", link: "#" },
-        { label: "Coordonnées Bancaires", link: "#" },
-        { label: "Personnel & Charge et Ayant Droit", link: "#" },
+        { label: "Mes Infos RH", link: "/collaborator" },
+        { label: "Mes infos pro ", link: "/InformationEntreprise" },
+        { label: "Compétences & formations", link: "#" },
+        { label: "Rémunération & Banque", link: "#" },
       ],
     },
     {
       id: "performance",
       icon: BarChart2,
       label: "Performance",
-      link: "/performance",
+      link: "/perform",
     },
     {
       id: "training",
@@ -62,6 +62,10 @@ const Sidebar = () => {
     setExpandedSection(expandedSection === sectionId ? null : sectionId);
   };
 
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <div className="flex h-screen">
       <div
@@ -69,13 +73,21 @@ const Sidebar = () => {
           isCollapsed ? "w-16" : "w-64"
         } bg-[#222d55] flex flex-col transition-all duration-300 relative`}
       >
-        {/* Logo */}
-        <div className="flex items-center justify-center py-4 bg-[#222d55] ">
-          <img
-            src="public\Plan de travail 3@4x-100.jpeg"
-            alt="Logo"
-            className={`h-20 ${isCollapsed ? "hidden" : "block"} transition-all`}
-          />
+        {/* Logo Section */}
+        <div className="flex items-center justify-between p-4 bg-[#222d55]">
+          {!isCollapsed && (
+            <img
+              src="public/Plan de travail 3@4x-100.jpeg"
+              alt="Logo"
+              className="h-16"
+            />
+          )}
+          <button
+            onClick={toggleSidebar}
+            className="text-white hover:bg-gray-700 p-2 rounded-full focus:outline-none"
+          >
+            {isCollapsed ? <ChevronDown /> : <ChevronUp />}
+          </button>
         </div>
 
         {/* Main Menu */}
@@ -83,28 +95,32 @@ const Sidebar = () => {
           <nav className="space-y-1">
             {menuItems.map((item) => (
               <div key={item.id} className="px-3">
-                <Link
-                  to={item.link || "#"}
+                <div
                   onClick={() => handleSectionClick(item.id)}
+                  className={`flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer transition-colors ${
+                    item.isActive
+                      ? "bg-[#F15A2B] text-white"
+                      : "text-gray-400 hover:bg-gray-800"
+                  }`}
                 >
-                  <div
-                    className={`flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer transition-colors
-                      ${
-                        item.isActive
-                          ? "bg-[#F15A2B] text-white"
-                          : "text-gray-400 hover:bg-gray-800"
-                      }`}
-                  >
-                    <div className="flex items-center min-w-0">
-                      <item.icon className="w-5 h-5 flex-shrink-0" />
-                      {(!isCollapsed || expandedSection === item.id) && (
-                        <span className="ml-3 text-sm truncate">
-                          {item.label}
-                        </span>
-                      )}
-                    </div>
+                  <div className="flex items-center">
+                    <item.icon className="w-5 h-5" />
+                    {!isCollapsed && (
+                      <span className="ml-3 text-sm truncate">
+                        {item.label}
+                      </span>
+                    )}
                   </div>
-                </Link>
+                  {!isCollapsed && item.subItems && (
+                    <ChevronDown
+                      className={`w-4 h-4 ${
+                        expandedSection === item.id
+                          ? "transform rotate-180"
+                          : ""
+                      }`}
+                    />
+                  )}
+                </div>
 
                 {/* Submenu */}
                 {!isCollapsed &&
@@ -143,6 +159,8 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+
+      
     </div>
   );
 };

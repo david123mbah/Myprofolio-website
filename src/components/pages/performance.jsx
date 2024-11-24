@@ -1,13 +1,10 @@
-// pages/Performance.jsx
-import React from 'react';
 
-const Performance = () => {
+import React from 'react'
+
+const performance = () => {
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Performance Overview</h1>
-      <p>Analyze key performance indicators and employee metrics here.</p>
-    </div>
-  );
-};
+    <div>performance</div>
+  )
+}
 
-export default Performance;
+export default performance
